@@ -34,12 +34,6 @@ const renderBookmarks = async () => {
 			</a>
 		`;
 		});
-	grid.querySelectorAll("a").forEach((a) => {
-		a.addEventListener("click", (e) => {
-			e.preventDefault();
-			window.location.href = a.href;
-		});
-	});
 };
 
 renderBookmarks();
