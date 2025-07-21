@@ -13,6 +13,7 @@ if (!localBookmarks.length) {
 
 const renderBookmarks = async () => {
 	const grid = document.querySelector(".grid");
+	grid.innerHTML = "";
 	localBookmarks
 		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
 		.forEach(({ fields: { Icon, Name, URL } }) => {
@@ -33,6 +34,12 @@ const renderBookmarks = async () => {
 			</a>
 		`;
 		});
+	grid.querySelectorAll("a").forEach((a) => {
+		a.addEventListener("click", (e) => {
+			e.preventDefault();
+			window.location.href = a.href;
+		});
+	});
 };
 
 renderBookmarks();
