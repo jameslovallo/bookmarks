@@ -42,7 +42,9 @@ button {
 
 nav {
 	align-items: center;
-	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(5px);
+	background: #0004;
+	border: 1px solid #fff4;
 	border-radius: 100px;
 	display: grid;
 	grid-template-columns: 1fr auto auto;
