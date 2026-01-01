@@ -22,7 +22,7 @@ const renderBookmarks = async () => {
 				<div class="icon" style="background: ${Background}">
 					${
 						Icon.startsWith("https")
-							? `<img src="${Icon}" style="transform: scale(${Scale})%">`
+							? `<img src="${Icon}" style="transform: scale(${Scale}%)">`
 							: Icon
 					}
 				</div>
