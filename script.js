@@ -22,6 +22,10 @@ const renderBookmarks = async () => {
 				iconText = Icon.split("|")[0];
 				iconColor = Icon.split("|")[1];
 			}
+			if (Icon.includes("<>")) {
+				iconColor = Icon.split("<>")[0];
+				Icon = Icon.split("<>")[1];
+			}
 			grid.innerHTML += `
 			<a href="${URL}">
 				${!iconText ? `<img src="${Icon}">` : ""}
