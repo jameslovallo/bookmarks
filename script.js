@@ -18,13 +18,12 @@ const renderBookmarks = async () => {
 		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
 		.forEach(({ fields: { Icon, Name, URL } }) => {
 			let iconText, iconColor;
-			if (!Icon.startsWith("https")) {
-				iconText = Icon.split("|")[0];
-				iconColor = Icon.split("|")[1];
-			}
 			if (Icon.includes("<>")) {
 				iconColor = Icon.split("<>")[0];
 				Icon = Icon.split("<>")[1];
+			} else if (!Icon.startsWith("https")) {
+				iconText = Icon.split("|")[0];
+				iconColor = Icon.split("|")[1];
 			}
 			grid.innerHTML += `
 			<a href="${URL}">
