@@ -27,6 +27,7 @@ body {
 
 img {
 	display: block;
+	margin: 0;
 	width: 100%;
 }
 
@@ -117,7 +118,6 @@ nav {
 	place-items: center;
 	text-shadow: none;
 }
-.grid img,
 .grid .icon {
 	border-radius: 30%;
 	box-shadow: 0 1px 2px #0008;
@@ -125,7 +125,6 @@ nav {
 	width: 64px;
 }
 @media (max-width: 600px) {
-	.grid img,
 	.grid .icon {
 		font-size: 10px;
 		margin: 0;
