@@ -49,5 +49,5 @@ document
 
 document.querySelector("nav button").addEventListener("click", async () => {
 	localStorage.setItem("bookmarks", JSON.stringify(await getBookmarks()));
-	renderBookmarks();
+	window.reload();
 });
