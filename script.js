@@ -16,13 +16,13 @@ const renderBookmarks = async () => {
 	grid.innerHTML = "";
 	localBookmarks
 		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
-		.forEach(({ fields: { Background = "transparent", Icon, Name, Scale, URL } }) => {
+		.forEach(({ fields: { Background = "transparent", Icon, Name, Scale = 100, URL } }) => {
 			grid.innerHTML += `
 			<a href="${URL}">
 				<div class="icon" style="background: ${Background}">
 					${
 						Icon.startsWith("https")
-							? `<img src="${Icon}" style="transform: scale ${Scale}%">`
+							? `<img src="${Icon}" style="transform: scale(${Scale})%">`
 							: Icon
 					}
 				</div>
