@@ -19,10 +19,15 @@ const renderBookmarks = async () => {
 		.forEach(({ fields: { Background = "transparent", Icon, Name, Scale, URL } }) => {
 			grid.innerHTML += `
 			<a href="${URL}">
+				<div class="icon" style="background: ${Background}">
+					${
+						Icon.startsWith("https")
+							? `<img src="${Icon}" style="transform: scale ${Scale}%">`
+							: Icon
+					}
+				</div>
 				${
-					Icon.startsWith("https")
-						? `<img src="${Icon}" style="background: ${Background}">`
-						: `<div class="icon" style="background: ${Background}">${Icon}</div>`
+					
 				}
 				${Name}
 			</a>
