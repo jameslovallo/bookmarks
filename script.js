@@ -26,9 +26,6 @@ const renderBookmarks = async () => {
 							: Icon
 					}
 				</div>
-				${
-					
-				}
 				${Name}
 			</a>
 		`;
