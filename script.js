@@ -17,7 +17,7 @@ const renderBookmarks = async () => {
 	localBookmarks
 		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
 		.forEach(({ fields: { Icon, Name, URL } }) => {
-			let iconText, iconColor;
+			let iconText, iconColor = "transparent";
 			if (Icon.includes("<>")) {
 				iconColor = Icon.split("<>")[0];
 				Icon = Icon.split("<>")[1];
@@ -27,7 +27,7 @@ const renderBookmarks = async () => {
 			}
 			grid.innerHTML += `
 			<a href="${URL}">
-				${!iconText ? `<img src="${Icon}">` : ""}
+				${!iconText ? `<img src="${Icon}" style="background: ${iconColor}">` : ""}
 				${
 					iconText
 						? `<div class="icon" style="background: ${iconColor}">${iconText}</div>`
