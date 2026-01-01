@@ -16,22 +16,13 @@ const renderBookmarks = async () => {
 	grid.innerHTML = "";
 	localBookmarks
 		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
-		.forEach(({ fields: { Icon, Name, URL } }) => {
-			let iconText, iconColor = "transparent";
-			if (Icon.includes("<>")) {
-				iconColor = Icon.split("<>")[0];
-				Icon = Icon.split("<>")[1];
-			} else if (!Icon.startsWith("https")) {
-				iconText = Icon.split("|")[0];
-				iconColor = Icon.split("|")[1];
-			}
+		.forEach(({ fields: { Background = "transparent", Icon, Name, Scale, URL } }) => {
 			grid.innerHTML += `
 			<a href="${URL}">
-				${!iconText ? `<img src="${Icon}" style="background: ${iconColor}">` : ""}
 				${
-					iconText
-						? `<div class="icon" style="background: ${iconColor}">${iconText}</div>`
-						: ""
+					Icon.startsWith("https")
+						? `<img src="${Icon}" style="background: ${Background}">`
+						: `<div class="icon" style="background: ${Background}">${Icon}</div>`
 				}
 				${Name}
 			</a>
