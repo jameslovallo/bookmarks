@@ -4,7 +4,7 @@ const token =
 	"patGX0yPuNcMRRtJm.d909c2e4feb09812f45ceec50c0bea450481b4a179d5a124589baa246838b8d0";
 
 export const getRecords = (table, id = "") =>
-	fetch(`${api}/${base}/${table + (id ? "/" + id : "")}`, {
+	fetch(`${api}/${base}/${table + (id ? "/" + id : "")}?view=Grid%20view`, {
 		headers: { Authorization: `Bearer ${token}` },
 	}).then((res) => res.json());
 
