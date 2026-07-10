@@ -15,7 +15,6 @@ const renderBookmarks = async () => {
 	const grid = document.querySelector(".grid");
 	grid.innerHTML = "";
 	localBookmarks
-		.sort((a, b) => a.fields.Name.localeCompare(b.fields.Name))
 		.forEach(({ fields: { Background = "transparent", Icon, Name, Scale = 100, URL } }) => {
 			grid.innerHTML += `
 			<a href="${URL}">
