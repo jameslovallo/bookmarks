@@ -89,7 +89,7 @@ nav {
 .list a {
   align-items: center;
   color: currentColor;
-  font-size: 1rem;
+  font-size: 14px;
   display: flex;
   font-weight: bold;
   gap: 1rem;
