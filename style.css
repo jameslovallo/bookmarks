@@ -5,7 +5,7 @@
 }
 
 :root:before {
-  background: url(lofi-girl-smoking.jpg) no-repeat center center/cover;
+  background: url(background.jpg) no-repeat center center/cover;
   bottom: 0;
   content: "";
   left: 0;
@@ -108,7 +108,7 @@ nav {
 }
 .list .icon {
   aspect-ratio: 1;
-  background: #705382;
+  background: #362f2c;
   border-radius: 50%;
   display: grid;
   overflow: hidden;
@@ -121,5 +121,5 @@ nav {
   width: 1.5rem;
 }
 .list .icon svg * {
-  stroke: #fcecff;
+  stroke: #d8c2bb;
 }
