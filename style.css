@@ -113,8 +113,7 @@ nav {
 }
 .grid .icon {
 	aspect-ratio: 1;
-	background: #5A396Dbb;
-	backdrop-filter: blur(5px);
+	background: #705382;
 	display: grid;
 	font-size: 1.5em;
 	overflow: hidden;
@@ -132,7 +131,7 @@ nav {
 	width: 32px;
 }
 .grid .icon svg * {
-	stroke: #E1B7F5;
+	stroke: #FCECFF;
 }
 @media (max-width: 600px) {
 	.grid .icon {

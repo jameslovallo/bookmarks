@@ -1,35 +1,33 @@
 import { getRecords } from "./api.js";
 
-const getBookmarks = async () => {
+const grid = document.querySelector(".grid");
+
+const localBookmarks = localStorage.getItem("bookmarks");
+
+if (localBookmarks.length) {
+  grid.innerHTML = localBookmarks;
+} else fetchBookmarks();
+
+const fetchBookmarks = async () => {
+  console.log("updating bookmarks");
   const { records } = await getRecords("tbldjjuIzlPhttH8u");
-  return records;
-};
-
-const localBookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-if (!localBookmarks.length) {
-  localStorage.setItem("bookmarks", JSON.stringify(await getBookmarks()));
-}
-
-const renderBookmarks = async () => {
-  const grid = document.querySelector(".grid");
   grid.innerHTML = "";
-  
-  const links = await Promise.all(
-    localBookmarks.map(async ({ fields: { Icon, Name, URL } }) => {
+
+  const gridLinks = await Promise.all(
+    records.map(async ({ fields: { Icon, Name, URL } }) => {
       const iconMarkup = await fetch(
-        `https://raw.githubusercontent.com/LawnchairLauncher/lawnicons/refs/heads/develop/svgs/${Icon || 'lawnicons'}.svg`,
+        `https://raw.githubusercontent.com/LawnchairLauncher/lawnicons/refs/heads/develop/svgs/${Icon || "lawnicons"}.svg`,
       )
         .then((res) => res.text())
         .then((res) => res.replace("<svg", '<svg viewBox="0 0 192 192"'));
       return `<a href="${URL}"><div class="icon">${iconMarkup}</div>${Name}</a>`;
-    })
+    }),
   );
 
-  grid.innerHTML = links.join('');
+  const gridMarkup = gridLinks.join("");
+  localStorage.setItem("bookmarks", gridMarkup);
+  grid.innerHTML = gridMarkup;
 };
-
-renderBookmarks();
 
 document
   .querySelector('input[type="search"]')
@@ -41,6 +39,5 @@ document
   });
 
 document.querySelector("nav button").addEventListener("click", async () => {
-  localStorage.setItem("bookmarks", JSON.stringify(await getBookmarks()));
-  location.reload();
+  fetchBookmarks();
 });
