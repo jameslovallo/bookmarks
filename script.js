@@ -41,15 +41,16 @@ if (localBookmarks.length) {
   list.innerHTML = localBookmarks;
 } else fetchBookmarks();
 
-document
-  .querySelector('input[type="search"]')
-  .addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const search = e.target.value;
-      window.location.href = `https://www.google.com/search?q=${search}`;
-    }
-  });
-
 document.querySelector("nav button").addEventListener("click", async () => {
   fetchBookmarks();
 });
+
+const clockElement = document.querySelector('.clock');
+
+function updateClock() {
+  clockElement.textContent = new Date().toLocaleTimeString(navigator.language, {hour: 'numeric', minute:'2-digit'});
+}
+
+// Initial call to avoid layout delay, then update every second
+updateClock();
+setInterval(updateClock, 1000);

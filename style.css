@@ -1,4 +1,6 @@
 :root {
+  --monet-dark: #362f2c;
+  --monet-light: #d8c2bb;
   background: black;
   font-family: sans-serif;
   height: 100%;
@@ -42,37 +44,29 @@ button {
 }
 
 nav {
-  align-items: center;
-  backdrop-filter: blur(5px);
-  background: #0004;
-  border: 1px solid #fff4;
-  border-radius: 100px;
-  display: grid;
+  align-items: flex;
+  display: flex;
   grid-template-columns: 1fr auto auto;
-  margin: 1rem auto;
+  margin: 0 auto;
   max-width: 39rem;
+  padding: 4rem 0 0;
+  width: 80vw;
 
-  input,
+  .clock {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: auto;
+  }
+
   a,
   button {
     background: transparent;
     border: 0;
-    color: white;
+    color: var(--monet-light);
+    display: flex;
     fill: currentcolor;
-    font-size: 1rem;
     padding: 0.75rem;
-  }
-
-  input {
-    padding: 0.5rem 1rem;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
-  input::placeholder {
-    color: white;
   }
 }
 
@@ -81,7 +75,7 @@ nav {
   filter: drop-shadow(1px 1px 1px #0004);
   margin: 0 auto;
   max-width: 39rem;
-  padding: 2rem 0;
+  padding: 0 0 4rem;
   width: 80vw;
 }
 .list h2 {
@@ -108,7 +102,7 @@ nav {
 }
 .list .icon {
   aspect-ratio: 1;
-  background: #362f2c;
+  background: var(--monet-dark);
   border-radius: 50%;
   display: grid;
   overflow: hidden;
@@ -121,5 +115,5 @@ nav {
   width: 1.5rem;
 }
 .list .icon svg * {
-  stroke: #d8c2bb;
+  stroke: var(--monet-light);
 }
