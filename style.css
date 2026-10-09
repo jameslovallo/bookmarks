@@ -1,142 +1,125 @@
 :root {
-	background: black;
-	font-family: sans-serif;
-	height: 100%;
+  background: black;
+  font-family: sans-serif;
+  height: 100%;
 }
 
 :root:before {
-	background: url(lofi-girl-smoking.jpg)
-		no-repeat center center/cover;
-	bottom: 0;
-	content: "";
-	left: 0;
-	opacity: 0.75;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: -1;
+  background: url(lofi-girl-smoking.jpg) no-repeat center center/cover;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.75;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
 }
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 img {
-	display: block;
-	margin: 0;
-	width: 100%;
+  display: block;
+  margin: 0;
+  width: 100%;
 }
 
 svg {
-	display: block;
-	flex-shrink: 0;
-	height: 24px;
-	width: 24px;
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 nav {
-	align-items: center;
-	backdrop-filter: blur(5px);
-	background: #0004;
-	border: 1px solid #fff4;
-	border-radius: 100px;
-	display: grid;
-	grid-template-columns: 1fr auto auto;
-	margin: 1rem auto;
-	width: 400px;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  background: #0004;
+  border: 1px solid #fff4;
+  border-radius: 100px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  margin: 1rem auto;
+  max-width: 39rem;
 
-	input,
-	a,
-	button {
-		background: transparent;
-		border: 0;
-		color: white;
-		fill: currentcolor;
-		font-size: 1rem;
-		padding: 0.75rem;
-	}
+  input,
+  a,
+  button {
+    background: transparent;
+    border: 0;
+    color: white;
+    fill: currentcolor;
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
 
-	input {
-		padding: 0.5rem 1rem;
-	}
+  input {
+    padding: 0.5rem 1rem;
+  }
 
-	input:focus {
-		outline: none;
-	}
+  input:focus {
+    outline: none;
+  }
 
-	input::placeholder {
-		color: white;
-	}
+  input::placeholder {
+    color: white;
+  }
 }
 
-.grid {
-	display: grid;
-	gap: 2rem;
-	grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-	margin: 0 auto;
-	max-width: 1300px;
-	padding: 4rem 0;
-	width: 80vw;
+.list {
+  color: white;
+  filter: drop-shadow(1px 1px 1px #0004);
+  margin: 0 auto;
+  max-width: 39rem;
+  padding: 2rem 0;
+  width: 80vw;
 }
-@media (max-width: 600px) {
-	.grid {
-		grid-template-columns: unset;
-	}
+.list h2 {
+  color: white;
+  margin: 2rem 0 1rem;
 }
-.grid a {
-	color: white;
-	font-size: 14px;
-  	overflow: hidden;
-	text-align: center;
-	text-decoration: none;
-	text-overflow: ellipsis;
-	text-shadow: 1px 1px 1px black;
-  	white-space: nowrap;
+.list .link-grid {
+  display: grid;
+  gap: 1.25rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 }
-@media (max-width: 600px) {
-	.grid a {
-		align-items: center;
-		display: grid;
-		font-size: 1rem;
-		gap: 1rem;
-		grid-template-columns: 32px 1fr;
-		text-align: left;
-	}
+.list a {
+  align-items: center;
+  color: currentColor;
+  font-size: 1rem;
+  display: flex;
+  font-weight: bold;
+  gap: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 1px black;
+  white-space: nowrap;
 }
-.grid .icon {
-	aspect-ratio: 1;
-	background: #705382;
-	display: grid;
-	font-size: 1.5em;
-	overflow: hidden;
-	place-items: center;
-	text-shadow: none;
+.list .icon {
+  aspect-ratio: 1;
+  background: #705382;
+  border-radius: 50%;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  text-shadow: none;
+  width: 3rem;
 }
-.grid .icon {
-	border-radius: 50%;
-	box-shadow: 0 1px 2px #0008;
-	margin: 0 auto 0.5em;
-	width: 64px;
+.list .icon svg {
+  height: 24px;
+  width: 1.5rem;
 }
-.grid .icon svg {
-	height: 32px;
-	width: 32px;
-}
-.grid .icon svg * {
-	stroke: #FCECFF;
-}
-@media (max-width: 600px) {
-	.grid .icon {
-		font-size: 10px;
-		margin: 0;
-		width: 32px;
-	}
+.list .icon svg * {
+  stroke: #fcecff;
 }
