@@ -44,9 +44,8 @@ button {
 }
 
 nav {
-  align-items: flex;
+  align-items: baseline;
   display: flex;
-  grid-template-columns: 1fr auto auto;
   margin: 0 auto;
   max-width: 39rem;
   padding: 4rem 0 0;
@@ -108,7 +107,7 @@ nav {
   overflow: hidden;
   place-items: center;
   text-shadow: none;
-  width: 3rem;
+  width: 2.5rem;
 }
 .list .icon svg {
   height: 24px;
