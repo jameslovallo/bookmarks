@@ -1,21 +1,18 @@
 :root {
   --monet-dark: #362f2c;
   --monet-light: #d8c2bb;
-  background: black;
   font-family: sans-serif;
   height: 100%;
 }
 
-:root:before {
+.background {
   background: url(background.jpg) no-repeat center center/cover;
-  bottom: 0;
-  content: "";
+  background-position: fixed;
+  height: 100%;
   left: 0;
-  opacity: 0.75;
   position: fixed;
-  right: 0;
   top: 0;
-  z-index: -1;
+  width: 100%;
 }
 
 body {
@@ -35,8 +32,8 @@ img {
 svg {
   display: block;
   flex-shrink: 0;
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
 }
 
 button {
@@ -48,30 +45,31 @@ nav {
   margin: 0 auto;
   max-width: 39rem;
   padding: 4rem 0 0;
+  position: relative;
   width: 80vw;
 
   .clock {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-right: auto;
   }
 
   .date {
-    color: var(--monet-light);
-    margin-right: .75rem;
+    color: white;
+    margin-right: 0.75rem;
   }
 
   .meta {
     align-items: center;
     display: flex;
-    gap: .25rem;
+    font-size: 14px;
   }
 
   a,
   button {
     background: transparent;
     border: 0;
-    color: var(--monet-light);
+    color: currentColor;
     display: flex;
     fill: currentcolor;
   }
@@ -85,15 +83,18 @@ nav {
   padding: 0 0 4rem;
   width: 80vw;
 }
+
 .list h2 {
   color: white;
   margin: 2rem 0 1rem;
 }
+
 .list .link-grid {
   display: grid;
   gap: 1.25rem 1rem;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 }
+
 .list a {
   align-items: center;
   color: currentColor;
@@ -107,6 +108,7 @@ nav {
   text-shadow: 1px 1px 1px black;
   white-space: nowrap;
 }
+
 .list .icon {
   aspect-ratio: 1;
   background: var(--monet-dark);
@@ -117,10 +119,12 @@ nav {
   text-shadow: none;
   width: 2.5rem;
 }
+
 .list .icon svg {
   height: 24px;
   width: 1.5rem;
 }
+
 .list .icon svg * {
   stroke: var(--monet-light);
 }
