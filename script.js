@@ -48,14 +48,17 @@ document.querySelector("nav button").addEventListener("click", async () => {
 });
 
 const clockElement = document.querySelector(".clock");
+const dateElement = document.querySelector(".date")
 
 function updateClock() {
-  clockElement.textContent = new Date().toLocaleTimeString(navigator.language, {
+  const d = new Date()
+  clockElement.textContent = d.toLocaleTimeString(navigator.language, {
     hour: "numeric",
     minute: "2-digit",
   });
+  dateElement.textContent = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
 }
 
 // Initial call to avoid layout delay, then update every second
 updateClock();
-setInterval(updateClock, 1000);
+setInterval(updateClock, 5000);

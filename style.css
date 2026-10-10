@@ -35,8 +35,8 @@ img {
 svg {
   display: block;
   flex-shrink: 0;
-  height: 24px;
-  width: 24px;
+  height: 16px;
+  width: 16px;
 }
 
 button {
@@ -44,18 +44,27 @@ button {
 }
 
 nav {
-  align-items: baseline;
-  display: flex;
+  color: white;
   margin: 0 auto;
   max-width: 39rem;
   padding: 4rem 0 0;
   width: 80vw;
 
   .clock {
-    color: white;
     font-size: 2rem;
     font-weight: bold;
     margin-right: auto;
+  }
+
+  .date {
+    color: var(--monet-light);
+    margin-right: .75rem;
+  }
+
+  .meta {
+    align-items: center;
+    display: flex;
+    gap: .25rem;
   }
 
   a,
@@ -65,7 +74,6 @@ nav {
     color: var(--monet-light);
     display: flex;
     fill: currentcolor;
-    padding: 0.75rem;
   }
 }
 
