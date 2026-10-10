@@ -37,7 +37,7 @@ const fetchBookmarks = async () => {
 
 const localBookmarks = localStorage.getItem("bookmarks");
 
-if (localBookmarks.length) {
+if (localBookmarks?.length) {
   list.innerHTML = localBookmarks;
 } else fetchBookmarks();
 
