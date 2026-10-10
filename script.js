@@ -26,10 +26,12 @@ const fetchBookmarks = async () => {
 
   let listMarkup = "";
 
-  Object.keys(listObject).forEach((letter) => {
-    listMarkup += `<h2>${letter}</h2>`;
-    listMarkup += `<div class="link-grid">${listObject[letter].join("")}</div>`;
-  });
+  Object.keys(listObject)
+    .sort()
+    .forEach((letter) => {
+      listMarkup += `<h2>${letter}</h2>`;
+      listMarkup += `<div class="link-grid">${listObject[letter].join("")}</div>`;
+    });
   localStorage.setItem("bookmarks", listMarkup);
   console.log(listMarkup);
   list.innerHTML = listMarkup;
@@ -45,10 +47,13 @@ document.querySelector("nav button").addEventListener("click", async () => {
   fetchBookmarks();
 });
 
-const clockElement = document.querySelector('.clock');
+const clockElement = document.querySelector(".clock");
 
 function updateClock() {
-  clockElement.textContent = new Date().toLocaleTimeString(navigator.language, {hour: 'numeric', minute:'2-digit'});
+  clockElement.textContent = new Date().toLocaleTimeString(navigator.language, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
 }
 
 // Initial call to avoid layout delay, then update every second
