@@ -53,17 +53,13 @@ nav {
     font-weight: bold;
   }
 
-  .date {
-    color: white;
-    margin-right: 1rem;
-  }
-
   .meta {
     align-items: center;
     display: flex;
     font-size: 14px;
+    gap: .5rem;
   }
-
+  
   a,
   button {
     background: transparent;
@@ -71,6 +67,8 @@ nav {
     color: currentColor;
     display: flex;
     fill: currentcolor;
+    padding: 0;
+    text-decoration: none;
   }
 }
 

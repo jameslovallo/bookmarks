@@ -47,18 +47,35 @@ document.querySelector("nav button").addEventListener("click", async () => {
   fetchBookmarks();
 });
 
-const clockElement = document.querySelector(".clock");
-const dateElement = document.querySelector(".date")
-
 function updateClock() {
-  const d = new Date()
+  const clockElement = document.querySelector(".clock");
+  const dateElement = document.querySelector(".date");
+  const d = new Date();
+
   clockElement.textContent = d.toLocaleTimeString(navigator.language, {
     hour: "numeric",
     minute: "2-digit",
   });
-  dateElement.textContent = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+
+  dateElement.textContent = d.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
 }
 
-// Initial call to avoid layout delay, then update every second
 updateClock();
 setInterval(updateClock, 5000);
+
+async function updateWeather() {
+  const weatherElement = document.querySelector(".weather");
+  const conditions = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=42.3314&longitude=-83.0458&current=temperature_2m&temperature_unit=fahrenheit",
+  ).then((res) => res.json());
+  const { current: {temperature_2m}} = conditions
+  const degrees = Math.round(Number(temperature_2m))
+  weatherElement.textContent = degrees + '°'
+}
+
+updateWeather()
+setInterval(updateClock, 1200000);
