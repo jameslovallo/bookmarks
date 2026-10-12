@@ -18,7 +18,7 @@ const fetchBookmarks = async () => {
 
       const linkMarkup = `<a href="${URL}"><div class="icon">${iconMarkup}</div>${Name}</a>`;
 
-      const firstLetter = Name.charAt(0);
+      const firstLetter = Name.charAt(0).toLowerCase();
       if (!listObject[firstLetter]) listObject[firstLetter] = [];
       listObject[firstLetter].push(linkMarkup);
     }),
@@ -29,7 +29,7 @@ const fetchBookmarks = async () => {
   Object.keys(listObject)
     .sort()
     .forEach((letter) => {
-      listMarkup += `<h2>${letter}</h2>`;
+      listMarkup += `<h2 id="${letter}">${letter.toUpperCase()}</h2>`;
       listMarkup += `<div class="link-grid">${listObject[letter].join("")}</div>`;
     });
   localStorage.setItem("bookmarks", listMarkup);
@@ -72,10 +72,19 @@ async function updateWeather() {
   const conditions = await fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=42.3314&longitude=-83.0458&current=temperature_2m&temperature_unit=fahrenheit",
   ).then((res) => res.json());
-  const { current: {temperature_2m}} = conditions
-  const degrees = Math.round(Number(temperature_2m))
-  weatherElement.textContent = degrees + '°'
+  const {
+    current: { temperature_2m },
+  } = conditions;
+  const degrees = Math.round(Number(temperature_2m));
+  weatherElement.textContent = degrees + "°";
 }
 
-updateWeather()
+updateWeather();
 setInterval(updateClock, 1200000);
+
+addEventListener("keydown", ({ key }) => {
+  const heading = document.getElementById(key)
+  heading.scrollIntoView({ behavior: "smooth" });
+  const link = document.querySelector(`#${key} + div > a`)
+  link.focus()
+});
