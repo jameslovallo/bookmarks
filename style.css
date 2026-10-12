@@ -1,6 +1,7 @@
 :root {
   --monet-dark: #362f2c;
   --monet-light: #d8c2bb;
+  color-scheme: dark;
   font-family: sans-serif;
   height: 100%;
 }
