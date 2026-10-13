@@ -2,7 +2,7 @@
   --monet-dark: #362f2c;
   --monet-light: #d8c2bb;
   color-scheme: dark;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   height: 100%;
 }
 
@@ -42,7 +42,6 @@ button {
 }
 
 nav {
-  color: white;
   margin: 0 auto;
   max-width: 39rem;
   padding: 4rem 0 0;
@@ -75,7 +74,6 @@ nav {
 }
 
 .list {
-  color: white;
   filter: drop-shadow(1px 1px 1px #0004);
   margin: 0 auto;
   max-width: 39rem;
@@ -84,7 +82,7 @@ nav {
 }
 
 .list h2 {
-  color: white;
+  font-family: "Josefin Sans", sans-serif;
   margin: 2rem 0 1rem;
 }
 
