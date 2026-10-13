@@ -52,10 +52,10 @@ function updateClock() {
   const dateElement = document.querySelector(".date");
   const d = new Date();
 
-  clockElement.textContent = d.toLocaleTimeString(navigator.language, {
+  clockElement.textContent = d.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
-  });
+  }).replace(/AM|PM/,'') ;
 
   dateElement.textContent = d.toLocaleDateString("en-US", {
     weekday: "short",
