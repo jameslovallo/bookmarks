@@ -29,11 +29,13 @@ const fetchBookmarks = async () => {
   Object.keys(listObject)
     .sort()
     .forEach((letter) => {
+      const sortedLinks = listObject[letter]
+        .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())
+        .join("");
       listMarkup += `<h2 id="${letter}">${letter.toUpperCase()}</h2>`;
-      listMarkup += `<div class="link-grid">${listObject[letter].join("")}</div>`;
+      listMarkup += `<div class="link-grid">${sortedLinks}</div>`;
     });
   localStorage.setItem("bookmarks", listMarkup);
-  console.log(listMarkup);
   list.innerHTML = listMarkup;
 };
 
@@ -52,10 +54,12 @@ function updateClock() {
   const dateElement = document.querySelector(".date");
   const d = new Date();
 
-  clockElement.textContent = d.toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-  }).replace(/AM|PM/,'') ;
+  clockElement.textContent = d
+    .toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+    })
+    .replace(/AM|PM/, "");
 
   dateElement.textContent = d.toLocaleDateString("en-US", {
     weekday: "short",
@@ -83,8 +87,8 @@ updateWeather();
 setInterval(updateClock, 1200000);
 
 addEventListener("keydown", ({ key }) => {
-  const heading = document.getElementById(key)
+  const heading = document.getElementById(key);
   heading.scrollIntoView({ behavior: "smooth" });
-  const link = document.querySelector(`#${key} + div > a`)
-  link.focus()
+  const link = document.querySelector(`#${key} + div > a`);
+  link.focus();
 });
