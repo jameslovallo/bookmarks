@@ -74,18 +74,21 @@ setInterval(updateClock, 5000);
 
 async function updateWeather() {
   const weatherElement = document.querySelector(".weather");
-  const conditions = await fetch(
-    "https://api.open-meteo.com/v1/forecast?latitude=42.3314&longitude=-83.0458&current=temperature_2m&temperature_unit=fahrenheit",
+  const forecast = await fetch(
+    "https://api.weather.gov/stations/KDET/observations/latest",
   ).then((res) => res.json());
   const {
-    current: { temperature_2m },
-  } = conditions;
-  const degrees = Math.round(Number(temperature_2m));
-  weatherElement.textContent = degrees + "°";
+    properties: {
+      temperature: { value },
+    },
+  } = forecast;
+  const toFarenheit = (celsius) => (celsius * 9) / 5 + 32;
+  const degrees = toFarenheit(value);
+  weatherElement.textContent = Math.round(degrees) + "°";
 }
 
 updateWeather();
-setInterval(updateClock, 1200000);
+setInterval(updateWeather, 900000);
 
 addEventListener("keydown", ({ key }) => {
   const heading = document.getElementById(key);
