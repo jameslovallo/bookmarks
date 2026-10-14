@@ -6,7 +6,7 @@ const fetchBookmarks = async () => {
   const { records } = await getRecords("tbldjjuIzlPhttH8u");
   list.innerHTML = "";
 
-  const listObject = {};
+  const bookmarks = {};
 
   await Promise.all(
     records.map(async ({ fields: { Icon, Name, URL } }) => {
@@ -19,24 +19,25 @@ const fetchBookmarks = async () => {
       const linkMarkup = `<a href="${URL}"><div class="icon">${iconMarkup}</div>${Name}</a>`;
 
       const firstLetter = Name.charAt(0).toLowerCase();
-      if (!listObject[firstLetter]) listObject[firstLetter] = [];
-      listObject[firstLetter].push(linkMarkup);
+      if (!bookmarks[firstLetter]) bookmarks[firstLetter] = {};
+      bookmarks[firstLetter][Name] = linkMarkup;
     }),
   );
 
-  let listMarkup = "";
+  let bookmarkHTML = "";
 
-  Object.keys(listObject)
+  Object.keys(bookmarks)
     .sort()
     .forEach((letter) => {
-      const sortedLinks = listObject[letter]
-        .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())
+      bookmarkHTML += `<h2 id="${letter}">${letter.toUpperCase()}</h2>`;
+      const sortedLinks = Object.keys(bookmarks[letter])
+        .sort()
+        .map((name) => bookmarks[letter][name])
         .join("");
-      listMarkup += `<h2 id="${letter}">${letter.toUpperCase()}</h2>`;
-      listMarkup += `<div class="link-grid">${sortedLinks}</div>`;
+      bookmarkHTML += `<div class="link-grid">${sortedLinks}</div>`;
     });
-  localStorage.setItem("bookmarks", listMarkup);
-  list.innerHTML = listMarkup;
+  localStorage.setItem("bookmarks", bookmarkHTML);
+  list.innerHTML = bookmarkHTML;
 };
 
 const localBookmarks = localStorage.getItem("bookmarks");
