@@ -1,6 +1,7 @@
 :root {
   --monet-dark: #362f2c;
   --monet-light: #d8c2bb;
+  background: black;
   color-scheme: dark;
   font-family: "Work Sans", sans-serif;
   height: 100%;
@@ -11,12 +12,14 @@
   background-position: fixed;
   height: 100%;
   left: 0;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
 body {
+  filter: drop-shadow(1px 1px 1px #0004);
   margin: 0;
 }
 
@@ -74,7 +77,6 @@ nav {
 }
 
 .list {
-  filter: drop-shadow(1px 1px 1px #0004);
   margin: 0 auto;
   max-width: 39rem;
   padding: 0 0 4rem;
